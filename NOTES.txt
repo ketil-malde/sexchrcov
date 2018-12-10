@@ -1,0 +1,12 @@
+
+Use map.sh to map sequencees in parallel
+Also, do sorting and indexing
+
+atcount < *.fa > atcounts c1 = AT%, c2 = n-counts
+samtools faidx > *.fai  c1 = length (also in atcounts)
+
+combinestats.sh - combine multiple outputs from samtools idxstats, and
+                  prepend atcounts
+
+plot.sh - plot based on output from combinestats
+
