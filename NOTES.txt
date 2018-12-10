@@ -1,12 +1,37 @@
 
-Use map.sh to map sequencees in parallel
-Also, do sorting and indexing
+This repository contains a set of scripts to classify
+contigs/scaffolds by sequencing coverage.  This approach can be useful
+to identify candidate sex chromosome sequences, and also to reveal the
+sex determination system (e.g., XY or ZW).  Please note that this is
+not in any way a ready to use tool, but rather documentation that may
+(or may not) be useful and instructive if you are trying to do
+something similar.
 
-atcount < *.fa > atcounts c1 = AT%, c2 = n-counts
-samtools faidx > *.fai  c1 = length (also in atcounts)
+  map.sh - map sequences (give a fastq file as the input parameter) with bwa
+      Use GNU parallel to run multiple processes in parallel.
 
-combinestats.sh - combine multiple outputs from samtools idxstats, and
-                  prepend atcounts
+Then do sorting and indexing with 'bwa sort' and 'bwa index'.
 
-plot.sh - plot based on output from combinestats
+Use the 'atcount' tool to get genome composition statistics:
+
+  atcount < *.fa > atcounts
+
+col1 = AT%, col2 = n-counts.  Alternatively, use:
+
+  ncount.sh - for fasta-files with a single line of sequence data,
+      count the non-N characters in each sequence.
+
+To index the genome:
+
+  samtools faidx B_acuto-0.0.scaffold.fa > B_acuto-0.0.scaffold.fa.fai
+
+col1 = length (also in atcounts). 
+
+  combinestats.sh - combine multiple outputs from samtools idxstats, and
+      prepend atcounts
+
+Generate plots (specific to Minke data, adjust parameters to fit):
+
+  plot.sh - generate a set of plots based on the output from
+      combinestats 
 
