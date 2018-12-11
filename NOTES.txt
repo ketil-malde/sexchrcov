@@ -5,7 +5,9 @@ to identify candidate sex chromosome sequences, and also to reveal the
 sex determination system (e.g., XY or ZW).  Please note that this is
 not in any way a ready to use tool, but rather documentation that may
 (or may not) be useful and instructive if you are trying to do
-something similar.
+something similar.  All items in this repository are released in the
+public domain, or may alternatively be used under any Creative Commons
+license.
 
   map.sh - map sequences (give a fastq file as the input parameter) with bwa
       Use GNU parallel to run multiple processes in parallel.
